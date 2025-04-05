@@ -5,7 +5,8 @@ import LabelledInput from "./labelledInput";
 import PresentationSection from "./presentationSection";
 import SubtaskCheckbox from "./subtaskCheckbox";
 import ThemeSwitcher from "./themeSwitcher";
-
+import Task from "./task";
+import StatusSelector from "./statusSelector";
 const Presentation = () => {
     const [inputValues, setInputValues] = useState({
         input1: "",
@@ -30,7 +31,7 @@ const Presentation = () => {
         });
     }
     return (
-        <div className="bg-bg p-12 space-y-8 w-full h-dvh">
+        <div className="bg-bg p-12 space-y-8 w-full">
       <PresentationSection title="Theme Switcher">
         <ThemeSwitcher />
       </PresentationSection>
@@ -49,6 +50,14 @@ const Presentation = () => {
       <PresentationSection title="Checkbox">
         <SubtaskCheckbox subtask={{ title: "Subtask-1", isCompleted: checkedSubtasks.subtask1 }} onCheckedChange={(checked) => handleCheckboxChange("subtask1", checked)} />
         <SubtaskCheckbox subtask={{ title: "Subtask-2", isCompleted: checkedSubtasks.subtask2 }} onCheckedChange={(checked) => handleCheckboxChange("subtask2", checked)} />
+      </PresentationSection>
+
+      <PresentationSection title="Select with options">
+        <StatusSelector />
+      </PresentationSection>
+
+      <PresentationSection title="Task">
+        <Task task={{ title: "Task", description: "Description", status: "Status", subtasks: [{ title: "Subtask-1", isCompleted: checkedSubtasks.subtask1 }, { title: "Subtask-2", isCompleted: checkedSubtasks.subtask2 }] }} />
       </PresentationSection>
     </div>
     )

@@ -118,3 +118,10 @@
     @apply !font-bold !text-[13px];
   }
 }
+
+/* Give the SVG a primary color */
+button svg {
+  stroke: var(--primary) !important;
+  stroke-width: 3px !important;
+  opacity: 1 !important;
+}
