@@ -65,19 +65,6 @@ export function getCurrentTheme(): Theme {
 }
 
 /**
- * Checks operating system's theme
- * 
- * @returns 'dark' if OS is dark, 'light' if OS is light
- */
-export function InitializeTheme() {
-  if (!isClient()) throw new Error('InitializeTheme must be called on client')
-
-  const theme = getCurrentTheme()
-
-  switchTheme(theme)
-}
-
-/**
  * Switch theme
  * 
  * @param theme - The theme to switch to

@@ -1,22 +1,25 @@
 'use client'
-import { getCurrentTheme, localGet, switchTheme } from "@/lib/utils"
-import { useEffect, useState } from "react"
+import { getCurrentTheme, switchTheme } from "@/lib/utils"
+import { ChangeEvent, useEffect, useState } from "react"
+
 const ThemeSwitcher = () => {
-    const currentTheme = getCurrentTheme()
-
-    const [theme, setTheme] = useState<Theme>(currentTheme)
-
+    const [theme, setTheme] = useState<Theme>('system')
+    
     useEffect(() => {
+        const currentTheme = getCurrentTheme()
         setTheme(currentTheme)
-    }, [currentTheme])
+    }, [])
 
-    const handleThemeChange = (theme: Theme) => {
+    const handleThemeChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        const theme = e.target.value as Theme
+
+        setTheme(theme)
         switchTheme(theme)
     }
 
     return (
         <div>
-            <select defaultValue={currentTheme || 'system'} onChange={(e) => handleThemeChange(e.target.value as Theme)}>
+            <select value={theme} onChange={handleThemeChange}>
                 <option value="dark">Dark</option>
                 <option value="light">Light</option>
                 <option value="system">System</option>
