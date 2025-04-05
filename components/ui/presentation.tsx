@@ -11,6 +11,10 @@ const Presentation = () => {
         input1: "",
         input2: "",
     });
+    const [checkedSubtasks, setCheckedSubtasks] = useState({
+        subtask1: false,
+        subtask2: false,
+    });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValues({
@@ -19,6 +23,12 @@ const Presentation = () => {
         });
     }
 
+    const handleCheckboxChange = (name: string, checked: boolean) => {
+        setCheckedSubtasks({
+            ...checkedSubtasks,
+            [name]: checked,
+        });
+    }
     return (
         <div className="bg-bg p-12 space-y-8 w-full h-dvh">
       <PresentationSection title="Theme Switcher">
@@ -37,8 +47,8 @@ const Presentation = () => {
       </PresentationSection>
 
       <PresentationSection title="Checkbox">
-        <SubtaskCheckbox subtask={{ title: "Subtask-1", isCompleted: true }} />
-        <SubtaskCheckbox subtask={{ title: "Subtask-2", isCompleted: false }} />
+        <SubtaskCheckbox subtask={{ title: "Subtask-1", isCompleted: checkedSubtasks.subtask1 }} onCheckedChange={(checked) => handleCheckboxChange("subtask1", checked)} />
+        <SubtaskCheckbox subtask={{ title: "Subtask-2", isCompleted: checkedSubtasks.subtask2 }} onCheckedChange={(checked) => handleCheckboxChange("subtask2", checked)} />
       </PresentationSection>
     </div>
     )
