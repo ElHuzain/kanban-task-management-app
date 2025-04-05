@@ -9,6 +9,7 @@ interface LabelledInputProps {
     error?: string;
     placeholder: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    name: string;
 }
 
 const LabelledInput = (props: LabelledInputProps) => {
@@ -17,13 +18,14 @@ const LabelledInput = (props: LabelledInputProps) => {
         value,
         error,
         placeholder,
-        onChange
+        onChange,
+        name
     } = props;
 
     return (
         <Label className="flex flex-col gap-2 text-start items-start">
             <span>{label}</span>
-            <Input className={cn("rounded-sm border-text-secondary/25 border", error && "border-destructive")} value={value} placeholder={placeholder} onChange={onChange} error={error} />
+            <Input name={name} className={cn("rounded-sm border-text-secondary/25 border", error && "border-destructive")} value={value} placeholder={placeholder} onChange={onChange} error={error} />
         </Label>
     )
 }
