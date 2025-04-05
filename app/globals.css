@@ -99,4 +99,22 @@
   body {
     @apply bg-background text-foreground;
   }
+  .heading-xl {
+    @apply !font-bold !text-[24px];
+  }
+  .heading-l {
+    @apply !font-bold !text-[18px];
+  }
+  .heading-m {
+    @apply !font-bold !text-[15px];
+  }
+  .heading-s {
+    @apply !font-bold !text-[12px] !tracking-[2.4px];
+  }
+  .body {
+    @apply !font-medium !text-[13px] !leading-[23px];
+  }
+  .body-bold {
+    @apply !font-bold !text-[13px];
+  }
 }
