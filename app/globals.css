@@ -53,6 +53,8 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-title: var(--text-title);
+  --color-secondary-button: var(--secondary-button);
+  --color-secondary-button-hover: var(--secondary-button-hover);
 }
 
 :root {
@@ -67,6 +69,8 @@
   --text-primary: #fff;
   --text-secondary: #828FA3;
   --text-title: #000112;
+  --secondary-button: #635FC71A;
+  --secondary-button-hover: #635FC740;
 
   --radius: 0.625rem;
 }
@@ -83,6 +87,8 @@
   --text-primary: #fff;
   --text-secondary: #828FA3;
   --text-title: #fff;
+  --secondary-button: #fff;
+  --secondary-button-hover: #fff;
 
 }
 
